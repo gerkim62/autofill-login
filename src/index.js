@@ -42,6 +42,7 @@ logoutButton.addEventListener("click", async (e) => {
   // logoutButton.innerText = "Logging out...";
   const { error } = await logout();
   if (error) {
+    
     alert(
       "An unexpected error has occured. Please reload this page to try logging out again. If the error persists, contact the Autofill developer. \n \n " +
         error.replace("auth/", "")

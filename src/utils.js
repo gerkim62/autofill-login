@@ -1,4 +1,8 @@
-import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import {
+  signInWithPopup,
+  GoogleAuthProvider,
+  signInWithRedirect,
+} from "firebase/auth";
 
 import { auth } from "./firebaseConfig.js";
 
@@ -10,7 +14,8 @@ async function loginWithGoogle() {
   } catch (error) {
     const errorCode = error.code;
 
-    return { error: errorCode };
+    return loginWithGoogleRedirect();
+    // return { error: errorCode };
   }
 }
 
@@ -24,22 +29,16 @@ async function logout() {
   }
 }
 
-export { loginWithGoogle, logout };
+async function loginWithGoogleRedirect() {
+  const provider = new GoogleAuthProvider();
+  try {
+    // const auth = getAuth();
+    await signInWithRedirect(auth, provider);
+  } catch (error) {
+    const errorCode = error.code;
+    console.log(error);
+    return { error: errorCode };
+  }
+}
 
-// import { getAuth, GoogleAuthProvider, signInWithRedirect } from "firebase/auth";
-
-// import { auth } from "./firebaseConfig.js";
-
-// async function loginWithGoogle() {
-//   const provider = new GoogleAuthProvider();
-//   try {
-//     // const auth = getAuth();
-//     await signInWithRedirect(auth, provider);
-//   } catch (error) {
-//     const errorCode = error.code;
-//     console.log(error);
-//     return { error: errorCode };
-//   }
-// }
-
-// export { loginWithGoogle };
+export { loginWithGoogle, logout, loginWithGoogleRedirect };
