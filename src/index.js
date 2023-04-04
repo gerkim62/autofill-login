@@ -35,6 +35,8 @@ loginWithGoogleButton.addEventListener("click", async (e) => {
         error.replace("auth/", "")
     );
   }
+
+  loginWithGoogleButton.disabled = false;
 });
 
 logoutButton.addEventListener("click", async (e) => {
