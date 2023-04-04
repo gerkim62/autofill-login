@@ -11,8 +11,8 @@ onAuthStateChanged(auth, async (user) => {
   if (user) {
     //user is signed in.
     // alert("logged in as " + user.displayName + "");
-    loginMessage.innerHTML = `Hi ${user.displayName}! <br />
-    You can now use Autofill while logged in.`;
+    loginMessage.innerHTML = `Hi ${user.displayName}! <br /> You are logged in. <br />
+    You can now use Autofill. `;
     loginWithGoogleButton.style.display = "none";
     logoutButton.style.display = "inline-block";
   } else {
