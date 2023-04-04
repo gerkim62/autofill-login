@@ -4,10 +4,23 @@ import { loginWithGoogle, logout } from "./utils.js";
 
 import { auth } from "./firebaseConfig.js";
 
-import { loginWithGoogleButton, loginMessage, logoutButton } from "./dom.js";
+import {
+  loginWithGoogleButton,
+  loginMessage,
+  logoutButton,
+  authChangesAnnouncer,
+} from "./dom.js";
 
 onAuthStateChanged(auth, async (user) => {
   console.log(JSON.stringify(user));
+
+  //this mutation will trigger the mutation then our extension will run to check the auth state
+  authChangesAnnouncer.setAttribute("data-has-changed", "true");
+
+  //wait for the mutation to be observed then set it back to false
+  setTimeout(() => {
+    authChangesAnnouncer.setAttribute("data-has-changed", "false");
+  }, 10);
 
   //save user to local storage
   localStorage.setItem("user", JSON.stringify(user));
@@ -62,5 +75,3 @@ logoutButton.addEventListener("click", async (e) => {
       "Hi there!<br/>You are not logged in. <br /> Please login to use Autofill.";
   }
 });
-
-// alert("success!");

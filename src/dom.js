@@ -4,3 +4,7 @@ export const loginWithGoogleButton =
 export const loginMessage = document.querySelector("#login-message");
 
 export const logoutButton = document.querySelector("#logout");
+
+export const authChangesAnnouncer = document.querySelector(
+  "#auth-changes-announcer"
+);
