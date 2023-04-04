@@ -29,7 +29,7 @@ onAuthStateChanged(auth, async (user) => {
     //user is signed in.
     // alert("logged in as " + user.displayName + "");
     loginMessage.innerHTML = `Hi ${user.displayName}! <br /> You are logged in. <br />
-    You can now use Autofill. `;
+    When you have a quiz on eLearning, answers will appear. `;
     loginWithGoogleButton.style.display = "none";
     logoutButton.style.display = "inline-block";
   } else {
