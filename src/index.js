@@ -14,12 +14,12 @@ onAuthStateChanged(auth, async (user) => {
     loginMessage.innerHTML = `Hi ${user.displayName}! <br />
     You can now use Autofill.`;
     loginWithGoogleButton.style.display = "none";
-    logoutButton.style.display = "block";
+    logoutButton.style.display = "inline-block";
   } else {
     // User is signed out
     alert("logged out");
     logoutButton.style.display = "none";
-    loginWithGoogleButton.style.display = "block";
+    loginWithGoogleButton.style.display = "inline-block";
   }
 });
 
