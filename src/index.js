@@ -39,7 +39,7 @@ loginWithGoogleButton.addEventListener("click", async (e) => {
 
 logoutButton.addEventListener("click", async (e) => {
   logoutButton.disabled = true;
-  logoutButton.innerText = "Logging out...";
+  // logoutButton.innerText = "Logging out...";
   const { error } = await logout();
   if (error) {
     alert(
@@ -48,7 +48,7 @@ logoutButton.addEventListener("click", async (e) => {
     );
   } else {
     logoutButton.disabled = false;
-    logoutButton.innerText = "Logout";
+    // logoutButton.innerText = "Logout";
     logoutButton.style.display = "none";
     loginWithGoogleButton.style.display = "inline-block";
     loginMessage.innerHTML =
