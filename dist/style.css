@@ -35,6 +35,8 @@ body {
 }
 
 .options button {
+  /* display: flex; */
+  justify-content: center;
   padding: 10px 20px;
   background-image: linear-gradient(
     to right,
@@ -71,6 +73,7 @@ body {
 .options button svg {
   fill: #fff;
   height: 20px;
+  width: 20px;
   margin-right: 0px;
   margin-bottom: -4px;
   filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.1));
