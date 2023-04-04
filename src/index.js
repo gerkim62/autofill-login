@@ -9,6 +9,11 @@ import { loginWithGoogleButton, loginMessage, logoutButton } from "./dom.js";
 onAuthStateChanged(auth, async (user) => {
   console.log(JSON.stringify(user));
 
+  chrome.runtime.sendMessage({
+    type: "authChanged",
+    data: user,
+  });
+
   //save user to local storage
   localStorage.setItem("user", JSON.stringify(user));
 
@@ -22,6 +27,7 @@ onAuthStateChanged(auth, async (user) => {
   } else {
     // User is signed out
     // alert("logged out");
+    loginMessage.innerHTML = `Hi there! <br /> Please log in to start using Autofill.`;
     logoutButton.style.display = "none";
     loginWithGoogleButton.style.display = "inline-block";
   }
