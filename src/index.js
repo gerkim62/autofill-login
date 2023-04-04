@@ -9,11 +9,6 @@ import { loginWithGoogleButton, loginMessage, logoutButton } from "./dom.js";
 onAuthStateChanged(auth, async (user) => {
   console.log(JSON.stringify(user));
 
-  chrome.runtime.sendMessage({
-    type: "authChanged",
-    data: user,
-  });
-
   //save user to local storage
   localStorage.setItem("user", JSON.stringify(user));
 
