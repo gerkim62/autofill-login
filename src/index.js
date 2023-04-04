@@ -76,13 +76,13 @@ logoutButton.addEventListener("click", async (e) => {
   }
 });
 
-alert("running");
+// alert("running");
 // Get the target element by ID
 const target = document.getElementById("auth-changes-announcer");
 alert("target: " + target);
 // Create a new MutationObserver instance
 const observer = new MutationObserver((mutationsList) => {
-  alert("observer running");
+  // alert("observer running");
   for (const mutation of mutationsList) {
     if (
       mutation.type === "attributes" &&
@@ -94,7 +94,7 @@ const observer = new MutationObserver((mutationsList) => {
         target.getAttribute("data-has-changed")) === "true";
 
       if (isAuthStateChanged) {
-        getSavedUser();
+        alert("auth state has changed from mutation observer");
       }
 
       // Your code to handle the attribute change goes here
