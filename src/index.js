@@ -4,13 +4,15 @@ import { loginWithGoogle } from "./utils.js";
 
 import { auth } from "./firebaseConfig.js";
 
-import { loginWithGoogleButton } from "./dom.js";
+import { loginWithGoogleButton, loginMessage } from "./dom.js";
 
 onAuthStateChanged(auth, async (user) => {
   console.log(JSON.stringify(user));
   if (user) {
     //user is signed in.
     alert("logged in as " + user.displayName + "");
+    loginMessage.innerHTML = `Hi ${user.displayName}! <br />
+    You can now use Autofill.`;
   } else {
     // User is signed out
     alert("logged out");
