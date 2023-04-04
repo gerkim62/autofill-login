@@ -25,7 +25,7 @@ loginWithGoogleButton.addEventListener("click", async (e) => {
   // alert("logging in " + user);
   if (error) {
     alert(
-      "An unexpected error has occured. Please reload this page to try logging in again. \n \n " +
+      "An unexpected error has occured. Please reload this page to try logging in again. If the error persists, contact the Autofill developer. \n \n " +
         error.replace("auth/", "")
     );
   }
