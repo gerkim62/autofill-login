@@ -8,6 +8,10 @@ import { loginWithGoogleButton, loginMessage, logoutButton } from "./dom.js";
 
 onAuthStateChanged(auth, async (user) => {
   console.log(JSON.stringify(user));
+
+  //save user to local storage
+  localStorage.setItem("user", JSON.stringify(user));
+
   if (user) {
     //user is signed in.
     // alert("logged in as " + user.displayName + "");
