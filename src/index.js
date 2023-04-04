@@ -75,32 +75,3 @@ logoutButton.addEventListener("click", async (e) => {
       "Hi there!<br/>You are not logged in. <br /> Please login to use Autofill.";
   }
 });
-
-// alert("running");
-// Get the target element by ID
-const target = document.getElementById("auth-changes-announcer");
-alert("target: " + target);
-// Create a new MutationObserver instance
-const observer = new MutationObserver((mutationsList) => {
-  // alert("observer running");
-  for (const mutation of mutationsList) {
-    if (
-      mutation.type === "attributes" &&
-      mutation.attributeName === "data-has-changed"
-    ) {
-      // The 'data-has-changed' attribute has changed
-      const isAuthStateChanged =
-        ("data-has-changed attribute has changed:",
-        target.getAttribute("data-has-changed")) === "true";
-
-      if (isAuthStateChanged) {
-        alert("auth state has changed from mutation observer");
-      }
-
-      // Your code to handle the attribute change goes here
-    }
-  }
-});
-
-// Start observing the target element for attribute changes
-observer.observe(target, { attributes: true });
