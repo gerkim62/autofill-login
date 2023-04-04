@@ -14,7 +14,17 @@ async function loginWithGoogle() {
   }
 }
 
-export { loginWithGoogle };
+async function logout() {
+  try {
+    await auth.signOut();
+    return {};
+  } catch (error) {
+    const errorCode = error.code;
+    return { error: errorCode };
+  }
+}
+
+export { loginWithGoogle, logout };
 
 // import { getAuth, GoogleAuthProvider, signInWithRedirect } from "firebase/auth";
 

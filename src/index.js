@@ -1,6 +1,6 @@
 import { onAuthStateChanged } from "firebase/auth";
 
-import { loginWithGoogle } from "./utils.js";
+import { loginWithGoogle, logout } from "./utils.js";
 
 import { auth } from "./firebaseConfig.js";
 
@@ -34,6 +34,25 @@ loginWithGoogleButton.addEventListener("click", async (e) => {
       "An unexpected error has occured. Please reload this page to try logging in again. If the error persists, contact the Autofill developer. \n \n " +
         error.replace("auth/", "")
     );
+  }
+});
+
+logoutButton.addEventListener("click", async (e) => {
+  logoutButton.disabled = true;
+  logoutButton.innerText = "Logging out...";
+  const { error } = await logout();
+  if (error) {
+    alert(
+      "An unexpected error has occured. Please reload this page to try logging out again. If the error persists, contact the Autofill developer. \n \n " +
+        error.replace("auth/", "")
+    );
+  } else {
+    logoutButton.disabled = false;
+    logoutButton.innerText = "Logout";
+    logoutButton.style.display = "none";
+    loginWithGoogleButton.style.display = "inline-block";
+    loginMessage.innerHTML =
+      "You are not logged in. <br /> Please login to use Autofill.";
   }
 });
 
