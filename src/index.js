@@ -26,7 +26,7 @@ onAuthStateChanged(auth, async (user) => {
 //event listeners
 loginWithGoogleButton.addEventListener("click", async (e) => {
   loginWithGoogleButton.disabled = true;
-  loginWithGoogleButton.innerText = "Logging in...";
+  // loginWithGoogleButton.innerText = "Logging in...";
   const { user, error } = await loginWithGoogle();
   // alert("logging in " + user);
   if (error) {
@@ -42,7 +42,6 @@ logoutButton.addEventListener("click", async (e) => {
   // logoutButton.innerText = "Logging out...";
   const { error } = await logout();
   if (error) {
-    
     alert(
       "An unexpected error has occured. Please reload this page to try logging out again. If the error persists, contact the Autofill developer. \n \n " +
         error.replace("auth/", "")
