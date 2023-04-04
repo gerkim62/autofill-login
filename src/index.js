@@ -54,7 +54,7 @@ logoutButton.addEventListener("click", async (e) => {
     logoutButton.style.display = "none";
     loginWithGoogleButton.style.display = "inline-block";
     loginMessage.innerHTML =
-      "You are not logged in. <br /> Please login to use Autofill.";
+      "Hi there!<br/>You are not logged in. <br /> Please login to use Autofill.";
   }
 });
 
