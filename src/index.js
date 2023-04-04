@@ -17,7 +17,7 @@ onAuthStateChanged(auth, async (user) => {
     logoutButton.style.display = "inline-block";
   } else {
     // User is signed out
-    alert("logged out");
+    // alert("logged out");
     logoutButton.style.display = "none";
     loginWithGoogleButton.style.display = "inline-block";
   }
