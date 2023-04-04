@@ -10,7 +10,7 @@ onAuthStateChanged(auth, async (user) => {
   console.log(JSON.stringify(user));
   if (user) {
     //user is signed in.
-    alert("logged in");
+    alert("logged in as " + user.displayName + "");
   } else {
     // User is signed out
     alert("logged out");
