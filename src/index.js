@@ -12,6 +12,9 @@ import {
 } from "./dom.js";
 
 onAuthStateChanged(auth, async (user) => {
+  const action = getActionFromQueryString();
+
+  alert(action);
   console.log(JSON.stringify(user));
 
   //this mutation will trigger the mutation then our extension will run to check the auth state
@@ -81,7 +84,3 @@ function getActionFromQueryString() {
   const action = urlParams.get("action");
   return action;
 }
-
-const action = getActionFromQueryString();
-
-alert(action);
