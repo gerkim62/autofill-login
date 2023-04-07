@@ -12,11 +12,6 @@ import {
 } from "./dom.js";
 
 onAuthStateChanged(auth, async (user) => {
-  const action = getActionFromQueryString();
-
-  alert(action);
-  console.log(JSON.stringify(user));
-
   //this mutation will trigger the mutation then our extension will run to check the auth state
   authChangesAnnouncer.setAttribute("data-has-changed", "true");
 
@@ -42,6 +37,11 @@ onAuthStateChanged(auth, async (user) => {
     logoutButton.style.display = "none";
     loginWithGoogleButton.style.display = "inline-block";
   }
+  const action = getActionFromQueryString();
+
+  alert(action + " " + user);
+
+  console.log(JSON.stringify(user));
 });
 
 //event listeners
