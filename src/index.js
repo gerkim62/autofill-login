@@ -40,8 +40,10 @@ onAuthStateChanged(auth, async (user) => {
 
   const action = getActionFromQueryString();
   if (action === "login" && !user) {
+    alert("logging in" + user);
     loginWithGoogleButton.click();
   } else if (action === "logout" && user) {
+    alert("logging out" + user);
     logoutButton.click();
   }
 
