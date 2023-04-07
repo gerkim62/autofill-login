@@ -75,3 +75,13 @@ logoutButton.addEventListener("click", async (e) => {
       "Hi there!<br/>You are not logged in. <br /> Please login to use Autofill.";
   }
 });
+
+function getActionFromQueryString() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const action = urlParams.get("action");
+  return action;
+}
+
+const action = getActionFromQueryString();
+
+alert(action);
