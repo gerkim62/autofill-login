@@ -32,7 +32,8 @@ onAuthStateChanged(auth, async (user) => {
     loginWithGoogleButton.style.display = "none";
     logoutButton.style.display = "inline-block";
     if (action === "logout") {
-      logoutButton.click();
+      // logoutButton.click();
+      alert("user is logged in, clicking logout button");
     }
   } else {
     // User is signed out
@@ -41,7 +42,8 @@ onAuthStateChanged(auth, async (user) => {
     logoutButton.style.display = "none";
     loginWithGoogleButton.style.display = "inline-block";
     if (action === "login") {
-      loginWithGoogleButton.click();
+      // loginWithGoogleButton.click();
+      alert("user is not logged in, clicking login button");
     }
   }
 
