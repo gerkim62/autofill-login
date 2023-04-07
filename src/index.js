@@ -12,6 +12,7 @@ import {
 } from "./dom.js";
 
 onAuthStateChanged(auth, async (user) => {
+  const action = getActionFromQueryString();
   //this mutation will trigger the mutation then our extension will run to check the auth state
   authChangesAnnouncer.setAttribute("data-has-changed", "true");
 
@@ -30,21 +31,18 @@ onAuthStateChanged(auth, async (user) => {
     When you have a quiz on eLearning, answers will appear. `;
     loginWithGoogleButton.style.display = "none";
     logoutButton.style.display = "inline-block";
+    if (action === "logout") {
+      logoutButton.click();
+    }
   } else {
     // User is signed out
     // alert("logged out");
     loginMessage.innerHTML = `Hi there! <br /> Please log in to start using Autofill.`;
     logoutButton.style.display = "none";
     loginWithGoogleButton.style.display = "inline-block";
-  }
-
-  const action = getActionFromQueryString();
-  if (action === "login" && !user) {
-    alert("logging in" + user);
-    loginWithGoogleButton.click();
-  } else if (action === "logout" && user) {
-    alert("logging out" + user);
-    logoutButton.click();
+    if (action === "login") {
+      loginWithGoogleButton.click();
+    }
   }
 
   console.log(JSON.stringify(user));
