@@ -37,9 +37,13 @@ onAuthStateChanged(auth, async (user) => {
     logoutButton.style.display = "none";
     loginWithGoogleButton.style.display = "inline-block";
   }
-  const action = getActionFromQueryString();
 
-  alert(action + " " + user);
+  const action = getActionFromQueryString();
+  if (action === "login" && !user) {
+    loginWithGoogleButton.click();
+  } else if (action === "logout" && user) {
+    logoutButton.click();
+  }
 
   console.log(JSON.stringify(user));
 });
